@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pydantic Practice Hub & Quiz Engine</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <div class="logo-area">
+        <span class="logo-icon">⚡</span>
+        <div>
+          <h1>Pydantic Practice Hub</h1>
+          <p class="subtitle">Master Python Data Validation & Parsing (V2)</p>
+        </div>
+      </div>
+      <div class="stats-bar">
+        <div class="stat-badge">
+          <span class="stat-label">Score</span>
+          <span id="score-display" class="stat-value">0</span>
+        </div>
+        <div class="stat-badge">
+          <span class="stat-label">Streak</span>
+          <span id="streak-display" class="stat-value">🔥 0</span>
+        </div>
+        <div class="stat-badge">
+          <span class="stat-label">Mastery</span>
+          <span id="mastery-display" class="stat-value">0%</span>
+        </div>
+      </div>
+    </header>
+
+    <nav class="nav-tabs">
+      <button class="tab-btn active" data-tab="quiz">Practice Quiz</button>
+      <button class="tab-btn" data-tab="flashcards">Flashcards</button>
+      <button class="tab-btn" data-tab="topics">Topic Index</button>
+    </nav>
+
+    <!-- QUIZ TAB -->
+    <section id="quiz-tab" class="tab-content active">
+      <div class="card quiz-card">
+        <div class="quiz-header">
+          <span id="question-category" class="badge">Category</span>
+          <span id="question-counter" class="counter">Question 1 of 10</span>
+        </div>
+
+        <div class="progress-bar-container">
+          <div id="progress-bar" class="progress-bar" style="width: 10%;"></div>
+        </div>
+
+        <h2 id="question-text" class="question-text">Loading question...</h2>
+
+        <div id="options-container" class="options-list"></div>
+
+        <div id="explanation-box" class="explanation-box hidden">
+          <div class="explanation-title" id="explanation-header">Explanation</div>
+          <p id="explanation-text"></p>
+        </div>
+
+        <div class="quiz-actions">
+          <button id="next-btn" class="btn btn-primary hidden">Next Question →</button>
+          <button id="reset-btn" class="btn btn-outline">Reset Progress</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLASHCARDS TAB -->
+    <section id="flashcards-tab" class="tab-content hidden">
+      <div class="flashcard-controls">
+        <button id="prev-card" class="btn btn-secondary">← Previous</button>
+        <span id="card-indicator">Card 1 of 8</span>
+        <button id="next-card" class="btn btn-secondary">Next →</button>
+      </div>
+
+      <div class="card flashcard" id="flashcard">
+        <div class="flashcard-inner">
+          <div class="flashcard-front">
+            <span class="badge">Concept</span>
+            <h3 id="card-title">Concept Title</h3>
+            <p class="hint">Click or press Space to flip</p>
+          </div>
+          <div class="flashcard-back">
+            <span class="badge badge-success">Explanation & Example</span>
+            <div id="card-body">Concept details...</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICS TAB -->
+    <section id="topics-tab" class="tab-content hidden">
+      <div class="card">
+        <h2>Topics Covered</h2>
+        <p>Comprehensive coverage of key Pydantic V2 concepts and patterns:</p>
+        <div class="topic-grid">
+          <div class="topic-item">
+            <h3>1. Parsing & Coercion Engine</h3>
+            <p>Automatic type conversion, strict mode vs coerced parsing.</p>
+          </div>
+          <div class="topic-item">
+            <h3>2. Beyond Object Creation</h3>
+            <p><code>validate_assignment</code>, <code>@validate_call</code>, and standalone <code>TypeAdapter</code>.</p>
+          </div>
+          <div class="topic-item">
+            <h3>3. Custom Validation</h3>
+            <p><code>@field_validator</code>, <code>@model_validator</code>, and field parameters.</p>
+          </div>
+          <div class="topic-item">
+            <h3>4. Ecosystem & Settings</h3>
+            <p><code>pydantic-settings</code> for environment variables and FastAPI integration.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Built with pure HTML, CSS, and JavaScript. Zero dependencies. Ready for free hosting on GitHub Pages, Netlify, or Vercel.</p>
+    </footer>
+  </div>
+
+  <script src="js/questions.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
